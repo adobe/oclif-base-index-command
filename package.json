@@ -1,7 +1,7 @@
 {
-  "name": "oclif-base-index-command",
+  "name": "@adobe/oclif-base-index-command",
   "version": "1.0.0",
-  "description": "Base command for routing index.js  (to support subcommands with no colons)",
+  "description": "Base oclif command for routing index.js  (to support subcommands with no colons)",
   "main": "index.js",
   "scripts": {
     "test": "eslint index.js"
