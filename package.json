@@ -1,0 +1,22 @@
+{
+  "name": "oclif-base-index-command",
+  "version": "1.0.0",
+  "description": "Base command for routing index.js  (to support subcommands with no colons)",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint index.js"
+  },
+  "author": "Adobe Inc.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@oclif/command": "^1.5.8"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}
