@@ -4,7 +4,9 @@
   "description": "Base oclif command for routing index.js  (to support subcommands with no colons)",
   "main": "index.js",
   "scripts": {
-    "test": "eslint index.js"
+    "test": "npm run eslint && npm run test-cli",
+    "eslint": "eslint index.js",
+    "test-cli": "cd test/test-cli && npm install && npm test"
   },
   "author": "Adobe Inc.",
   "homepage": "https://github.com/adobe/oclif-base-index-command",
