@@ -17,8 +17,22 @@ describe('hello', () => {
 
   test
   .stdout()
+  .command(['foo bar'])
+  .it('runs "foo bar" (space separated)', ctx => {
+    expect(ctx.stdout).to.contain('bar.js')
+  })
+
+  test
+  .stdout()
   .command(['foo:baz'])
   .it('runs foo:baz', ctx => {
+    expect(ctx.stdout).to.contain('baz.js')
+  })
+
+  test
+  .stdout()
+  .command(['foo baz'])
+  .it('runs "foo baz" (space separated)', ctx => {
     expect(ctx.stdout).to.contain('baz.js')
   })
 })
