@@ -14,7 +14,7 @@ const {expect, test} = require('@oclif/test')
 const path = require('path')
 const root = path.join(__dirname, '../..')
 
-describe('hello', () => {
+describe('test-cli for oclif-base-index-command', () => {
   test
   .loadConfig({root})
   .stdout()
@@ -30,7 +30,7 @@ describe('hello', () => {
   .stdout()
   .command(['foo:bar'])
   .it('runs foo:bar', ctx => {
-    expect(ctx.stdout).to.contain('bar.js')
+    expect(ctx.stdout).to.contain('hello world from foo:bar subcommand.')
   })
 
   test
@@ -38,7 +38,7 @@ describe('hello', () => {
   .stdout()
   .command(['foo', 'bar'])
   .it('runs "foo bar" (space separated)', ctx => {
-    expect(ctx.stdout).to.contain('bar.js')
+    expect(ctx.stdout).to.contain('hello world from foo:bar subcommand.')
   })
 
   test
@@ -46,7 +46,7 @@ describe('hello', () => {
   .stdout()
   .command(['foo:baz'])
   .it('runs foo:baz', ctx => {
-    expect(ctx.stdout).to.contain('baz.js')
+    expect(ctx.stdout).to.contain('hello world from foo:baz subcommand.')
   })
 
   test
@@ -54,6 +54,6 @@ describe('hello', () => {
   .stdout()
   .command(['foo', 'baz'])
   .it('runs "foo baz" (space separated)', ctx => {
-    expect(ctx.stdout).to.contain('baz.js')
+    expect(ctx.stdout).to.contain('hello world from foo:baz subcommand.')
   })
 })

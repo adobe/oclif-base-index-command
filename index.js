@@ -37,7 +37,7 @@ class BaseIndexCommand extends Command {
     const { args, argv } = this.parse(BaseIndexCommand) // need `parse` to trigger args check
 
     // subcommand topics (colon separated) are routed directly and never get here
-    // there will always be a subCommand because of the args check above 
+    // there will always be a subCommand because of the args check above
 
     const subCommand = args['sub-command']
     const topic = `${this.id}:${subCommand}`
