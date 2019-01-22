@@ -4,7 +4,9 @@
   "description": "Base oclif command for routing index.js  (to support subcommands with no colons)",
   "main": "index.js",
   "scripts": {
-    "test": "eslint index.js"
+    "test": "npm run eslint && npm run test-cli",
+    "eslint": "eslint index.js",
+    "test-cli": "cd test/test-cli && npm install && npm test"
   },
   "author": "Adobe Inc.",
   "homepage": "https://github.com/adobe/oclif-base-index-command",
@@ -15,11 +17,13 @@
   "license": "Apache-2.0",
   "bugs": "https://github.com/adobe/oclif-base-index-command/issues",
   "dependencies": {
-    "@oclif/command": "^1.5.8"
+    "@oclif/command": "^1.5.8",
+    "@oclif/config": "^1.12.0"
   },
   "engines": {
     "node": ">=8.0.0"
   },
+  "files": [],
   "devDependencies": {
     "eslint": "^5.12.0",
     "eslint-config-standard": "^12.0.0",
