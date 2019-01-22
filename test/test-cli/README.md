@@ -28,26 +28,43 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`test-cli hello`](#test-cli-hello)
+* [`test-cli foo SUB-COMMAND`](#test-cli-foo-sub-command)
+* [`test-cli foo:bar`](#test-cli-foobar)
+* [`test-cli foo:baz`](#test-cli-foobaz)
 * [`test-cli help [COMMAND]`](#test-cli-help-command)
 
-## `test-cli hello`
+## `test-cli foo SUB-COMMAND`
 
 Describe the command here
 
 ```
 USAGE
-  $ test-cli hello
-
-OPTIONS
-  -n, --name=name  name to print
+  $ test-cli foo SUB-COMMAND
 
 DESCRIPTION
   ...
   Extra documentation goes here
 ```
 
-_See code: [src/commands/hello.js](https://github.com/adobe/oclif-base-index-command/test/test-cli/test-cli/blob/v1.0.0/src/commands/hello.js)_
+_See code: [src/commands/foo/index.js](https://github.com/adobe/oclif-base-index-command/test/test-cli/test-cli/blob/v1.0.0/src/commands/foo/index.js)_
+
+## `test-cli foo:bar`
+
+```
+USAGE
+  $ test-cli foo:bar
+```
+
+_See code: [src/commands/foo/bar.js](https://github.com/adobe/oclif-base-index-command/test/test-cli/test-cli/blob/v1.0.0/src/commands/foo/bar.js)_
+
+## `test-cli foo:baz`
+
+```
+USAGE
+  $ test-cli foo:baz
+```
+
+_See code: [src/commands/foo/baz.js](https://github.com/adobe/oclif-base-index-command/test/test-cli/test-cli/blob/v1.0.0/src/commands/foo/baz.js)_
 
 ## `test-cli help [COMMAND]`
 

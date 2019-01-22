@@ -47,9 +47,10 @@
   "repository": "https://github.com/adobe/oclif-base-index-command/test/test-cli/test-cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
-    "posttest": "eslint .",
     "prepack": "oclif-dev manifest && oclif-dev readme",
-    "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
+    "test": "npm run eslint && npm run mocha",
+    "mocha": "nyc mocha --forbid-only \"test/**/*.test.js\"",
+    "eslint": "eslint src test",
     "version": "oclif-dev readme && git add README.md"
   }
 }

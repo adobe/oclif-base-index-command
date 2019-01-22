@@ -12,44 +12,42 @@
 
 const { Command, run } = require('@oclif/command')
 
-// ****************************************************************************
-//
-// This will support the "old" way of routing commands
-// where the subcommand follows the command, as well as the new way with topics:
-// i.e.
-//    .bin/run helix demo arg1 arg2 arg3
-// It will concatenate the command and subcommand and re-run the command:
-// i.e.
-//    bin/run helix:demo arg1 arg2 arg3
-//
-// You would only process the arguments on the 'index' command that has
-// subcommands under it
-//
-// ****************************************************************************
-const processArguments = (...rest) => {
-  if (process.argv[2].indexOf(':') > -1) {
-    return run.apply(null, ...rest)
-  }
-
-  let cmd = `${process.argv[2]}:${process.argv[3]}`
-  process.argv = [].concat(process.argv.slice(0, 2), [cmd], process.argv.slice(4))
-  return run.apply(null, ...rest)
-}
-
 class BaseIndexCommand extends Command {
   // ****************************************************************************
   //
   // Update the run() command to:
   // 1. First parse the args/flags (to let the argument validation kick in, need
   // at least one sub-command)
-  // 2. Call and return the `processArguments` function that will do the routing
   //
-  // The subclass *SHOULD NOT* implement run()
+  //
+  // The subclass *MUST NOT* implement run()
+  // This will support the "old" way of routing commands
+  // where the subcommand follows the command:
+  // i.e.
+  //    .bin/run foo demo arg1 arg2 arg3
+  // It will concatenate the command and subcommand and re-run the command:
+  // i.e.
+  //    bin/run foo:demo arg1 arg2 arg3
+  //
+  // You would only process the arguments on the 'index' command that has
+  // subcommands under it
   //
   // ****************************************************************************
   async run () {
-    this.parse(BaseIndexCommand) // need `parse` to trigger args check
-    return processArguments(arguments)
+    const { args, argv } = this.parse(BaseIndexCommand) // need `parse` to trigger args check
+
+    // subcommand topics (colon separated) are routed directly and never get here
+    // there will always be a subCommand because of the args check above 
+
+    const subCommand = args['sub-command']
+    const topic = `${this.id}:${subCommand}`
+    const index = argv.indexOf(subCommand)
+    if (index !== -1) {
+      argv[index] = topic
+    }
+
+    // the second parameter is the root path to the CLI containing the command
+    return run(argv, this.config.options)
   }
 }
 
