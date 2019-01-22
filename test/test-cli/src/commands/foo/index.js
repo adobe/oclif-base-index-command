@@ -2,9 +2,6 @@
 const BaseIndexCommand = require('../../../../..') // index.js
 
 class Foo extends BaseIndexCommand {
-  async run() {
-    this.log('hello world from ./src/commands/foo/index.js')
-  }
 }
 
 Foo.description = `Describe the command here
