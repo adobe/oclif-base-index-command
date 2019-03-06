@@ -10,6 +10,15 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 -->
 
+### DEPRECATED ⚠️  - This library is no longer maintained.
+# 
+# 
+
+
+
+
+
+
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@adobe/oclif-base-index-command.svg)](https://npmjs.org/package/@adobe/oclif-base-index-command)
 [![Downloads/week](https://img.shields.io/npm/dw/@adobe/oclif-base-index-command.svg)](https://npmjs.org/package/@adobe/oclif-base-index-command)
